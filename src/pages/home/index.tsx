@@ -493,11 +493,7 @@ const VideoUpload: React.FC<VideoUploadProps> = () => {
     //   'mov_text',
     //   'output.mp4',
     // );
-    ffmpeg.FS(
-      'writeFile',
-      'tmp/SourceSansPro-Bold',
-      await fetchFile(fontSrc),
-    );
+    ffmpeg.FS('writeFile', 'tmp/SourceSansPro-Bold', await fetchFile(fontSrc));
     const files = ffmpeg.FS('readdir', '/tmp');
     console.log(files);
     await ffmpeg.run(
@@ -760,7 +756,7 @@ const VideoUpload: React.FC<VideoUploadProps> = () => {
             maxCount={1}
             fileList={selectedFiles}
           >
-            <Button icon={<UploadOutlined />}>Click to Upload</Button>
+            <Button icon={<UploadOutlined />}>上传</Button>
           </Upload>
           <Button
             type="primary"
