@@ -395,7 +395,7 @@ const VideoUpload: React.FC<VideoUploadProps> = () => {
         '-c',
         'copy',
         '-segment_time', // 每10秒进行一次分割
-        '10',
+        time.toString(),
         '-f', // 输出为分段视频
         'segment',
         '-reset_timestamps', //开头时间戳
@@ -697,6 +697,7 @@ const VideoUpload: React.FC<VideoUploadProps> = () => {
           >
             预览
           </Button>
+          <div>双击视频帧和时间之间可以添加字幕</div>
           {captionsList.map((item, index) => (
             <div key={item.id} className={styles.captionItem}>
               <CloseOutlined
@@ -710,7 +711,7 @@ const VideoUpload: React.FC<VideoUploadProps> = () => {
                 }}
               />
               <div className={styles.captionTime}>
-                {changeTimeBySecond(item.start)}~{changeTimeBySecond(item.end)}
+                {changeTimeBySecond(item.start, true)}~{changeTimeBySecond(item.end, true)}
               </div>
               <Input
                 className={styles.captionInfo}
