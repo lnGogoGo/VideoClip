@@ -493,11 +493,7 @@ const VideoUpload: React.FC<VideoUploadProps> = () => {
     //   'mov_text',
     //   'output.mp4',
     // );
-    ffmpeg.FS(
-      'writeFile',
-      'tmp/SourceSansPro-Bold',
-      await fetchFile(fontSrc),
-    );
+    ffmpeg.FS('writeFile', 'tmp/SourceSansPro-Bold', await fetchFile(fontSrc));
     const files = ffmpeg.FS('readdir', '/tmp');
     console.log(files);
     await ffmpeg.run(
